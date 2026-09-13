@@ -159,6 +159,78 @@ footer{background:#1d1d1f;color:#a1a1a6;padding:35px 0;font-size:13px}.footer-gr
 }
 </style>
 
+
+<style id="dominant-brand-style">
+/* Dominant SKY Trading Company identity — same bold display character as the hero */
+.nav-inner{
+  height:126px!important;
+  transition:height .5s cubic-bezier(.16,.8,.2,1);
+}
+.brand{
+  align-items:baseline!important;
+  gap:10px!important;
+  transform-origin:left center;
+  transition:transform .5s cubic-bezier(.16,.8,.2,1);
+}
+.brand .sky{
+  font-size:58px!important;
+  line-height:.9!important;
+  font-weight:800!important;
+  letter-spacing:-4px!important;
+  color:#0071e3!important;
+  transition:font-size .5s cubic-bezier(.16,.8,.2,1),letter-spacing .5s cubic-bezier(.16,.8,.2,1);
+}
+.brand .name{
+  font-size:39px!important;
+  line-height:.9!important;
+  font-weight:800!important;
+  letter-spacing:-2.4px!important;
+  color:#1d1d1f!important;
+  transition:font-size .5s cubic-bezier(.16,.8,.2,1),letter-spacing .5s cubic-bezier(.16,.8,.2,1);
+}
+/* Compact professional header after scrolling */
+.nav.scrolled .nav-inner{height:68px!important}
+.nav.scrolled .brand{transform:scale(.98)}
+.nav.scrolled .brand .sky{
+  font-size:28px!important;
+  letter-spacing:-1.8px!important;
+}
+.nav.scrolled .brand .name{
+  font-size:18px!important;
+  letter-spacing:-.8px!important;
+}
+@media(max-width:1100px){
+  .brand .sky{font-size:48px!important}
+  .brand .name{font-size:31px!important}
+}
+@media(max-width:900px){
+  .nav-inner{height:96px!important}
+  .brand .sky{font-size:40px!important;letter-spacing:-2.5px!important}
+  .brand .name{font-size:27px!important;letter-spacing:-1.5px!important}
+  .nav.scrolled .nav-inner{height:64px!important}
+  .nav.scrolled .brand .sky{font-size:26px!important}
+  .nav.scrolled .brand .name{font-size:17px!important}
+}
+@media(max-width:600px){
+  .nav-inner{height:82px!important}
+  .brand{gap:6px!important}
+  .brand .sky{font-size:31px!important;letter-spacing:-2px!important}
+  .brand .name{font-size:19px!important;letter-spacing:-1px!important}
+  .nav.scrolled .brand .sky{font-size:23px!important}
+  .nav.scrolled .brand .name{font-size:14px!important}
+}
+</style>
+
+
+<style id="instagram-contact-style">
+.instagram-label{display:inline-flex;vertical-align:middle;margin-right:7px}
+.instagram-icon{
+  width:18px!important;height:18px!important;
+  object-fit:contain!important;border-radius:5px!important;
+  vertical-align:middle!important;display:inline-block!important;
+}
+</style>
+
 </head>
 <body id="top">
 <div class="progress" id="progress"></div>
@@ -272,7 +344,7 @@ footer{background:#1d1d1f;color:#a1a1a6;padding:35px 0;font-size:13px}.footer-gr
     <div class="info"><label>WhatsApp</label><a href="https://wa.me/919481388249" target="_blank">Chat on WhatsApp →</a></div>
     <div class="info"><label>Email</label><a href="mailto:cablechar@skykunigal.in">cablechar@skykunigal.in</a></div>
     <div class="info"><label>Address</label><a href="https://www.google.com/maps/search/?api=1&query=Opp%20Govt%20Hospital%20BM%20Road%20Kunigal%20572130" target="_blank">Opp. Govt Hospital, BM Road, Kunigal – 572130</a></div>
-    <div class="info"><label>Instagram</label><a href="https://www.instagram.com/skytrading.co/" target="_blank">@skytrading.co →</a></div>
+    <div class="info instagram-info"><label><span class="instagram-label"><img class="instagram-icon" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" loading="lazy"></span> Instagram</label><a href="https://www.instagram.com/skytrading.co/" target="_blank">@skytrading.co →</a></div>
    </div>
   </div>
  </div>
