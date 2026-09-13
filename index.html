@@ -1,350 +1,264 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="SKY Trading Company — Internet, Broadband, Cable TV, 3D Printing, Custom Products and Prototyping in Kunigal, Karnataka.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="SKY Trading Company — broadband, cable TV, 3D printing, custom products and business solutions in Kunigal, Karnataka.">
 <title>SKY Trading Company | Kunigal</title>
 <style>
 :root{
-  --bg:#050914;--panel:#0b1222;--panel2:#101a2f;--text:#f6f8ff;--muted:#aeb9d1;
-  --line:rgba(255,255,255,.11);--accent:#36a3ff;--accent2:#5d6cff;--max:1180px;
+  --blue:#0071e3;--blue2:#2997ff;--ink:#1d1d1f;--gray:#6e6e73;--light:#f5f5f7;
+  --white:#fff;--green:#25d366;--line:#d2d2d7;--max:1240px
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:radial-gradient(circle at 75% 5%,rgba(39,106,255,.22),transparent 32%),var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.55}
-a{color:inherit;text-decoration:none}
-.container{width:min(var(--max),calc(100% - 40px));margin:auto}
-.nav{position:sticky;top:0;z-index:20;background:rgba(5,9,20,.84);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+body{margin:0;background:#fff;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.container{width:min(var(--max),calc(100% - 48px));margin:auto}
+.topbar{font-size:12px;background:#fbfbfd;border-bottom:1px solid #eee;padding:8px 0;color:#6e6e73}
+.topbar .container{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.08)}
 .nav-inner{height:72px;display:flex;align-items:center;gap:28px}
-.logo{font-size:25px;font-weight:900;letter-spacing:-1px;margin-right:auto}.logo span{color:var(--accent)}
-.nav-links{display:flex;gap:25px;font-size:14px;font-weight:700;color:#dce5fb}
-.nav-links a:hover{color:#fff}
-.nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:12px;padding:12px 18px;font-weight:800;border:1px solid var(--line)}
-.nav-cta{border-color:rgba(54,163,255,.45);background:rgba(54,163,255,.09)}
-.btn.primary{background:#fff;color:#07101e;border-color:#fff}.btn.secondary{background:transparent}
-.hero{padding:100px 0 90px;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
-.eyebrow{color:#5db3ff;text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:900}
-h1{font-size:clamp(50px,7vw,88px);line-height:.98;letter-spacing:-5px;margin:14px 0 22px}
-.hero-copy{font-size:19px;color:var(--muted);max-width:650px}
-.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-.hero-visual{min-height:460px;border:1px solid var(--line);border-radius:28px;overflow:hidden;position:relative;background:#0a1225;box-shadow:0 30px 100px rgba(20,93,255,.18)}
-.hero-visual img{width:100%;height:100%;min-height:460px;object-fit:cover;display:block;opacity:.78}
-.hero-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 25%,rgba(5,9,20,.75) 100%)}
-.hero-badge{position:absolute;z-index:2;left:24px;bottom:22px;background:rgba(6,12,25,.78);border:1px solid var(--line);padding:14px 17px;border-radius:15px}
-section{padding:86px 0}
-.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:34px}
-.section-head h2{font-size:42px;line-height:1.05;letter-spacing:-2px;margin:7px 0 0}
-.section-head>p{color:var(--muted);max-width:520px;margin:0}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:20px;padding:25px}
-.card .icon{font-size:30px;margin-bottom:18px}.card h3{margin:0 0 7px;font-size:21px}.card p{margin:0;color:var(--muted)}
-.dark{background:linear-gradient(180deg,#070d1b,#091226);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.split{display:grid;grid-template-columns:.85fr 1.15fr;gap:50px;align-items:start}
-.big{font-size:60px;line-height:1;letter-spacing:-3px;margin:12px 0 20px}.lead{color:var(--muted);font-size:18px}
-.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.gallery figure{margin:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--panel)}
-.gallery img{width:100%;height:210px;object-fit:cover;display:block}
-.gallery figcaption{padding:14px;font-weight:800;font-size:14px}
-.gallery small{display:block;color:#8997b2;font-weight:500;margin-top:3px}
-.gallery small a{text-decoration:underline}
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.plan{background:linear-gradient(145deg,#111c34,#0a1222);border:1px solid var(--line);border-radius:18px;padding:22px}
-.plan .speed{font-size:25px;font-weight:900}.price{font-size:32px;font-weight:900;margin:8px 0 3px}.tax{color:var(--muted);font-size:13px}
-.plan .quote{margin-top:18px;width:100%;text-align:center;padding:10px;border:1px solid rgba(54,163,255,.35);border-radius:10px;color:#bfe1ff}
+.brand{margin-right:auto;display:flex;align-items:baseline;gap:8px;white-space:nowrap}
+.brand .sky{font-size:29px;font-weight:900;letter-spacing:-1.8px;color:var(--blue)}
+.brand .name{font-size:18px;font-weight:800;letter-spacing:-.7px}
+.brand small{display:block;font-size:9px;letter-spacing:1.2px;color:#6e6e73;margin-left:2px}
+.links{display:flex;gap:26px;font-size:14px;font-weight:500}
+.links a{transition:color .2s}.links a:hover{color:var(--blue)}
+.nav-btn{background:var(--blue);color:#fff;padding:11px 19px;border-radius:999px;font-size:14px;font-weight:700}
+.menu{display:none;border:0;background:none;font-size:25px}
+.hero{min-height:calc(100vh - 112px);display:flex;align-items:center;background:linear-gradient(180deg,#fbfdff,#fff);padding:90px 0 100px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.kicker{font-size:13px;letter-spacing:2.2px;text-transform:uppercase;color:var(--blue);font-weight:800}
+h1{font-size:clamp(58px,7vw,104px);line-height:.93;letter-spacing:-6px;margin:18px 0 26px;font-weight:800}
+h1 .blue{color:var(--blue)}
+.hero-copy{font-size:21px;line-height:1.45;color:var(--gray);max-width:680px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:999px;font-weight:700;font-size:15px;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-blue{background:var(--blue);color:#fff;box-shadow:0 12px 28px rgba(0,113,227,.22)}
+.btn-light{background:#f5f5f7;color:var(--ink)}
+.btn-green{background:var(--green);color:#fff}
+.hero-card{height:600px;border-radius:34px;overflow:hidden;position:relative;background:#111;box-shadow:0 35px 90px rgba(0,0,0,.18);transform:translateZ(0)}
+.hero-card img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.72))}
+.hero-label{position:absolute;z-index:2;left:30px;right:30px;bottom:28px;color:#fff}
+.hero-label strong{display:block;font-size:30px;letter-spacing:-1.2px}
+.hero-label span{display:block;margin-top:7px;color:#d8d8dc;font-size:15px}
+.strip{background:#1d1d1f;color:#fff;padding:22px 0}
+.strip .container{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.strip-item{text-align:center;font-size:14px;color:#f5f5f7}.strip-item b{display:block;font-size:21px;color:#fff;margin-bottom:2px}
+section{padding:120px 0}
+.section-head{max-width:900px;margin-bottom:48px}
+.section-head .kicker{margin-bottom:12px}
+.section-head h2{font-size:clamp(46px,5.5vw,78px);line-height:1;letter-spacing:-4px;margin:0 0 18px;font-weight:800}
+.section-head p{font-size:20px;line-height:1.5;color:var(--gray);max-width:720px;margin:0}
+.services{background:#fff}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.service{min-height:330px;border-radius:30px;padding:34px;background:#f5f5f7;position:relative;overflow:hidden;transition:transform .4s,box-shadow .4s}
+.service:hover{transform:translateY(-8px);box-shadow:0 25px 60px rgba(0,0,0,.10)}
+.service .num{font-size:13px;color:#86868b;font-weight:700}
+.service .icon{font-size:42px;margin:30px 0 16px}
+.service h3{font-size:27px;letter-spacing:-1.2px;margin:0 0 9px}
+.service p{color:var(--gray);font-size:16px;line-height:1.5;margin:0}
+.plans-section{background:#f5f5f7}
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.plan{background:#fff;border-radius:28px;padding:30px;border:1px solid #e5e5e7;position:relative;transition:transform .35s,box-shadow .35s}
+.plan:hover{transform:translateY(-8px);box-shadow:0 25px 55px rgba(0,0,0,.10)}
+.plan .speed{font-size:27px;font-weight:800;letter-spacing:-1px}
+.plan .price{font-size:43px;font-weight:800;letter-spacing:-2px;margin:14px 0 0}
+.plan .tax{color:#6e6e73;font-size:13px}
+.plan .enquire{display:block;text-align:center;margin-top:24px;padding:12px;border-radius:999px;background:#f5f5f7;color:var(--blue);font-weight:700}
+.plan.featured{border:2px solid var(--blue);padding:29px}
+.pop{position:absolute;right:22px;top:20px;background:var(--blue);color:#fff;font-size:11px;font-weight:800;padding:6px 10px;border-radius:999px}
+.print-section{background:#fff}
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:250px;gap:18px}
+.tile{position:relative;border-radius:28px;overflow:hidden;background:#111}
+.tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.tile:hover img{transform:scale(1.07)}
+.tile:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(0,0,0,.72))}
+.tile-text{position:absolute;z-index:2;left:24px;right:24px;bottom:20px;color:#fff}
+.tile-text b{display:block;font-size:23px;letter-spacing:-.6px}.tile-text span{font-size:13px;color:#ddd}
+.t1{grid-column:span 7;grid-row:span 2}.t2{grid-column:span 5}.t3{grid-column:span 5}.t4{grid-column:span 4}.t5{grid-column:span 4}.t6{grid-column:span 4}
+.note{color:#86868b;font-size:12px;margin-top:18px}
+.business{background:#000;color:#fff}
+.business .section-head p{color:#a1a1a6}.business .section-head h2{color:#fff}
 .business-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.contact{padding-top:70px}
-.contact-box{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:linear-gradient(145deg,#0d1730,#080f20)}
-.contact-panel{padding:34px}.contact-panel+ .contact-panel{border-left:1px solid var(--line)}
-.contact-panel h3{font-size:27px;margin-top:0}.contact-panel p{color:var(--muted)}
-.contact-links{display:grid;gap:11px}.contact-link{display:block;padding:15px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.025)}
-.contact-link span{display:block;color:#6db9ff;text-transform:uppercase;letter-spacing:1.3px;font-size:11px;font-weight:900;margin-bottom:3px}
-.whatsapp{background:#1fbd67!important;color:#fff!important;border-color:#1fbd67!important}
-footer{border-top:1px solid var(--line);padding:28px 0;color:#8e9bb5;font-size:13px}
-.footer-inner{display:flex;justify-content:space-between;gap:20px}
-.note{color:#7f8ba3;font-size:12px;margin-top:18px}
+.business-card{min-height:280px;border-radius:30px;padding:34px;background:linear-gradient(145deg,#242424,#151515);border:1px solid #333}
+.business-card h3{font-size:31px;letter-spacing:-1.3px;margin:35px 0 10px}.business-card p{color:#a1a1a6;line-height:1.55;font-size:16px}
+.contact{background:#f5f5f7}
+.contact-box{display:grid;grid-template-columns:1fr 1fr;border-radius:34px;overflow:hidden;background:#fff;border:1px solid #e5e5e7}
+.contact-main{padding:55px}.contact-main h2{font-size:56px;line-height:1;letter-spacing:-3px;margin:0 0 18px}.contact-main p{color:var(--gray);font-size:18px;max-width:550px}
+.contact-info{padding:55px;border-left:1px solid #e5e5e7;display:grid;gap:12px}
+.info{padding:19px;border-radius:18px;background:#f5f5f7}.info label{display:block;color:#86868b;text-transform:uppercase;font-size:10px;letter-spacing:1.5px;font-weight:800;margin-bottom:5px}.info a,.info div{font-size:16px;font-weight:600}
+footer{background:#1d1d1f;color:#a1a1a6;padding:35px 0;font-size:13px}.footer-grid{display:flex;justify-content:space-between;gap:25px}.footer-grid strong{color:#fff}
+.reveal{opacity:0;transform:translateY(55px) scale(.97);transition:opacity .9s ease,transform 1s cubic-bezier(.16,.8,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+.zoom{transform:scale(.88);opacity:.35;transition:transform 1.2s cubic-bezier(.16,.8,.2,1),opacity 1s ease}
+.zoom.visible{transform:scale(1);opacity:1}
+.parallax{will-change:transform}
+.progress{position:fixed;z-index:9999;top:0;left:0;width:0;height:3px;background:linear-gradient(90deg,#0071e3,#2997ff,#af52de)}
 @media(max-width:900px){
- .nav-links{display:none}.hero{padding-top:70px}.hero-grid,.split,.business-grid,.contact-box{grid-template-columns:1fr}
- .hero-visual{min-height:320px}.hero-visual img{min-height:320px}.cards,.plans{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:1fr 1fr}
- .contact-panel+.contact-panel{border-left:0;border-top:1px solid var(--line)}.big{font-size:50px}
+ .links{display:none}.menu{display:block}.nav-btn{margin-left:auto}.hero-grid,.business-grid,.contact-box{grid-template-columns:1fr}.hero-card{height:480px}.strip .container{grid-template-columns:repeat(2,1fr)}
+ .service-grid,.plan-grid{grid-template-columns:1fr 1fr}.gallery{grid-auto-rows:220px}.t1{grid-column:span 12}.t2,.t3{grid-column:span 6}.t4,.t5,.t6{grid-column:span 4}.contact-info{border-left:0;border-top:1px solid #e5e5e7}
 }
 @media(max-width:560px){
- .container{width:min(var(--max),calc(100% - 28px))}.nav-inner{height:64px}.nav-cta{padding:9px 12px;font-size:12px}
- h1{font-size:52px;letter-spacing:-3px}.hero-copy{font-size:16px}.section-head{display:block}.section-head>p{margin-top:14px}
- .cards,.plans,.gallery{grid-template-columns:1fr}.gallery img{height:230px}.footer-inner{display:block}.footer-inner div+div{margin-top:8px}
+ .container{width:calc(100% - 30px)}.topbar{display:none}.nav-inner{height:64px}.brand .name{font-size:15px}.brand .sky{font-size:24px}
+ .nav-btn{padding:9px 14px;font-size:12px}.hero{padding:75px 0}.hero-grid{gap:42px}h1{font-size:58px;letter-spacing:-3.5px}.hero-copy{font-size:18px}.hero-card{height:390px;border-radius:24px}
+ section{padding:85px 0}.section-head h2{font-size:47px;letter-spacing:-2.5px}.section-head p{font-size:17px}
+ .service-grid,.plan-grid{grid-template-columns:1fr}.strip .container{grid-template-columns:1fr 1fr}.gallery{display:grid;grid-template-columns:1fr;grid-auto-rows:250px}.t1,.t2,.t3,.t4,.t5,.t6{grid-column:span 1;grid-row:span 1}
+ .contact-main,.contact-info{padding:35px}.contact-main h2{font-size:46px}.footer-grid{display:block}.footer-grid div+div{margin-top:10px}
 }
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.reveal,.zoom{opacity:1!important;transform:none!important;transition:none!important}}
 </style>
-
-
-
-
-<style id="sky-pro-theme">
-:root{
-  --blue:#0071e3; --blue2:#2997ff; --ink:#1d1d1f; --gray:#6e6e73;
-  --light:#f5f5f7; --line:#d2d2d7; --green:#34c759;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0!important;
-  background:#fff!important;
-  color:var(--ink)!important;
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif!important;
-  overflow-x:hidden;
-}
-header,nav,.nav{
-  background:rgba(255,255,255,.82)!important;
-  color:var(--ink)!important;
-  border-bottom:1px solid rgba(0,0,0,.08)!important;
-  backdrop-filter:saturate(180%) blur(20px)!important;
-  -webkit-backdrop-filter:saturate(180%) blur(20px)!important;
-}
-.logo{display:flex!important;align-items:center!important;gap:7px!important;white-space:nowrap!important}
-.logo-sky{color:var(--blue)!important;font-weight:800!important}
-.logo-trading{color:var(--ink)!important;font-weight:700!important;letter-spacing:-.04em!important}
-nav a,.nav a{color:var(--ink)!important;font-size:14px!important;font-weight:500!important}
-nav a:hover,.nav a:hover{color:var(--blue)!important}
-.btn,button{
-  border:0!important;border-radius:999px!important;background:var(--blue)!important;
-  color:#fff!important;box-shadow:none!important;font-weight:600!important;
-}
-.btn:hover,button:hover{background:#0077ed!important;transform:scale(1.025)!important}
-.hero{
-  min-height:calc(100vh - 70px)!important;
-  padding:120px 7% 100px!important;
-  background:linear-gradient(180deg,#f8fbff 0%,#fff 70%)!important;
-  color:var(--ink)!important;
-  position:relative!important;
-  overflow:hidden!important;
-}
-.hero:before{
-  content:"";position:absolute;inset:auto -15% -35% 25%;height:65%;
-  background:radial-gradient(circle,rgba(41,151,255,.18),transparent 62%);
-  pointer-events:none;
-}
-.hero h1{
-  color:var(--ink)!important;font-size:clamp(54px,7.2vw,100px)!important;
-  line-height:.97!important;letter-spacing:-.065em!important;font-weight:800!important;
-  max-width:900px!important;position:relative!important;
-}
-.hero h1 span,.accent,.highlight{
-  color:var(--blue)!important;background:none!important;-webkit-text-fill-color:initial!important;
-}
-.hero p{color:var(--gray)!important;font-size:21px!important;line-height:1.45!important;max-width:700px!important}
-.hero .eyebrow{color:var(--gray)!important;letter-spacing:.13em!important;font-size:13px!important;font-weight:700!important}
-.hero img,.hero-image{border-radius:30px!important;box-shadow:0 30px 80px rgba(0,0,0,.14)!important}
-.section{
-  padding:110px 6%!important;background:#fff!important;color:var(--ink)!important;
-  position:relative!important;
-}
-.section:nth-of-type(even){background:var(--light)!important}
-.section h2{
-  color:var(--ink)!important;font-size:clamp(44px,5.4vw,76px)!important;
-  line-height:1.01!important;letter-spacing:-.06em!important;font-weight:800!important;
-}
-.section p{color:var(--gray)!important}
-.card,.plan,.service-card,.contact-card{
-  background:#fff!important;color:var(--ink)!important;border:1px solid #e5e5e7!important;
-  border-radius:28px!important;box-shadow:0 8px 30px rgba(0,0,0,.055)!important;
-  transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease!important;
-}
-.card:hover,.plan:hover,.service-card:hover{transform:translateY(-8px)!important;box-shadow:0 22px 50px rgba(0,0,0,.11)!important}
-.plan .price{color:var(--ink)!important}
-.badge,.popular{background:var(--ink)!important;color:#fff!important;border-radius:999px!important}
-.whatsapp,.btn.whatsapp{background:var(--green)!important;color:#fff!important}
-.contact-section,footer{background:#1d1d1f!important;color:#f5f5f7!important}
-.contact-section h2,.contact-section p,footer h2,footer p{color:#f5f5f7!important}
-
-/* Scroll-reveal animations */
-.sky-reveal{opacity:0;transform:translateY(45px) scale(.985);transition:opacity .9s ease,transform 1s cubic-bezier(.2,.75,.2,1)}
-.sky-reveal.sky-visible{opacity:1;transform:none}
-.sky-zoom{opacity:.35;transform:scale(.88);transition:opacity .9s ease,transform 1.1s cubic-bezier(.2,.75,.2,1)}
-.sky-zoom.sky-visible{opacity:1;transform:scale(1)}
-.sky-parallax{will-change:transform}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .sky-reveal,.sky-zoom{opacity:1!important;transform:none!important;transition:none!important}
-}
-@media(max-width:800px){
-  .hero{padding:90px 6% 70px!important;min-height:auto!important}
-  .hero h1{font-size:52px!important}
-  .hero p{font-size:18px!important}
-  .section{padding:80px 5%!important}
-  .section h2{font-size:46px!important}
-  .logo-trading{font-size:15px!important}
-}
-</style>
-
 </head>
-<body>
+<body id="top">
+<div class="progress" id="progress"></div>
+
+<div class="topbar">
+  <div class="container">
+    <div>📍 Opp. Govt Hospital, BM Road, Kunigal – 572130</div>
+    <div>📞 +91 94813 88249 &nbsp; · &nbsp; ✉ cablechar@skykunigal.in</div>
+  </div>
+</div>
 
 <nav class="nav">
   <div class="container nav-inner">
-    <a class="logo" href="#top" aria-label="SKY Trading Company">
-      <span class="logo-sky">SKY</span><span class="logo-trading"> TRADING COMPANY</span>
+    <a class="brand" href="#top" aria-label="SKY Trading Company">
+      <span class="sky">SKY</span><span class="name">TRADING COMPANY</span>
     </a>
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#plans">Broadband Plans</a>
-      <a href="#printing">3D Printing</a>
-      <a href="#business">Business</a>
-      <a href="#contact">Contact</a>
+    <div class="links">
+      <a href="#services">Services</a><a href="#plans">Broadband</a><a href="#printing">3D Printing</a>
+      <a href="#business">Business</a><a href="#contact">Contact</a>
     </div>
-    <a class="nav-cta" href="https://wa.me/919481388249?text=Hi%20SKY%20Trading%20Company%2C%20I%20would%20like%20a%20quotation." target="_blank" rel="noopener">WhatsApp Us</a>
+    <a class="nav-btn" href="https://wa.me/919481388249?text=Hi%20SKY%20Trading%20Company%2C%20I%20would%20like%20a%20quote." target="_blank">WhatsApp Us</a>
   </div>
 </nav>
 
 <header class="hero">
-  <div class="container hero-grid">
-    <div>
-      <div class="eyebrow">SKY Trading Company · Kunigal</div>
-      <h1>Connecting.<br>Creating.<br>Delivering.</h1>
-      <p class="hero-copy">Internet & Cable TV services, broadband plans, 3D printing, custom products and prototyping — for homes, businesses and corporate customers.</p>
-      <div class="btns">
-        <a class="btn primary" href="https://wa.me/919481388249?text=Hi%20SKY%20Trading%20Company%2C%20I%20want%20a%20quote." target="_blank" rel="noopener">Get a WhatsApp Quote</a>
-        <a class="btn secondary" href="#plans">View Broadband Plans</a>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <img src="https://images.unsplash.com/photo-1760446410955-86c0446b9be2?auto=format&fit=crop&fm=jpg&q=82&w=1400" alt="3D printer with printed objects">
-      <div class="hero-badge"><strong>3D Printing · Broadband · Cable TV</strong><br><span style="color:#aeb9d1">Kunigal, Karnataka</span></div>
-    </div>
+ <div class="container hero-grid">
+  <div class="reveal">
+   <div class="kicker">SKY Trading Company · Kunigal</div>
+   <h1>Connecting.<br>Creating.<br><span class="blue">Delivering.</span></h1>
+   <p class="hero-copy">High-speed internet, Cable TV, 3D printing, custom products and business solutions — all from one local technology partner.</p>
+   <div class="actions">
+    <a class="btn btn-blue" href="#plans">Explore Broadband Plans →</a>
+    <a class="btn btn-light" href="https://wa.me/919481388249?text=Hi%20SKY%20Trading%20Company%2C%20I%20want%20a%20quote." target="_blank">Chat on WhatsApp</a>
+   </div>
   </div>
+  <div class="hero-card zoom parallax">
+    <img src="https://images.unsplash.com/photo-1760446410955-86c0446b9be2?auto=format&fit=crop&fm=jpg&q=85&w=1600" alt="3D printer and printed objects">
+    <div class="hero-label"><strong>Ideas into real products.</strong><span>3D Printing · Prototyping · Custom Manufacturing</span></div>
+  </div>
+ </div>
 </header>
 
-<section class="sky-reveal" id="services">
-  <div class="container">
-    <div class="section-head">
-      <div><div class="eyebrow">What we do</div><h2>One company. Multiple solutions.</h2></div>
-      <p>Practical connectivity and custom manufacturing services, supported locally from Kunigal.</p>
-    </div>
-    <div class="cards">
-      <article class="card"><div class="icon">🌐</div><h3>Internet & Broadband</h3><p>Broadband connections for homes, offices and business customers with local support.</p></article>
-      <article class="card"><div class="icon">📺</div><h3>Cable TV</h3><p>Residential and commercial cable television service with local assistance.</p></article>
-      <article class="card"><div class="icon">🖨️</div><h3>3D Printing</h3><p>Custom parts, prototypes, personalized products and small-batch production.</p></article>
-    </div>
+<div class="strip">
+ <div class="container">
+  <div class="strip-item"><b>300+</b>Customers</div><div class="strip-item"><b>40–300 Mbps</b>Broadband Plans</div>
+  <div class="strip-item"><b>3D Printing</b>Custom & Bulk Orders</div><div class="strip-item"><b>Local Support</b>Kunigal & nearby</div>
+ </div>
+</div>
+
+<section id="services" class="services">
+ <div class="container">
+  <div class="section-head reveal"><div class="kicker">Services</div><h2>Everything you need.<br>In one place.</h2><p>From reliable connectivity to physical products, SKY Trading Company brings technology and local service together.</p></div>
+  <div class="service-grid">
+   <article class="service reveal"><div class="num">01</div><div class="icon">🌐</div><h3>Internet & Broadband</h3><p>High-speed broadband plans for homes, families, offices and higher-bandwidth requirements, backed by local support.</p></article>
+   <article class="service reveal"><div class="num">02</div><div class="icon">📺</div><h3>Cable TV</h3><p>Residential and commercial Cable TV service with dependable local assistance.</p></article>
+   <article class="service reveal"><div class="num">03</div><div class="icon">🖨️</div><h3>3D Printing</h3><p>Custom parts, prototypes, name tags, holders, enclosures and small-batch production.</p></article>
   </div>
+ </div>
 </section>
 
-<section class="sky-reveal" id="plans" class="dark">
-  <div class="container">
-    <div class="section-head">
-      <div><div class="eyebrow">Broadband Plans</div><h2>Choose your speed.</h2></div>
-      <p>Simple broadband options for everyday users, families, offices and higher-bandwidth requirements.</p>
-    </div>
-    <div class="plans">
-      <article class="plan"><div class="speed">40 Mbps</div><div class="price">₹499</div><div class="tax">+ GST</div><a class="quote" href="https://wa.me/919481388249?text=I%20am%20interested%20in%20the%2040%20Mbps%20plan." target="_blank">Enquire</a></article>
-      <article class="plan"><div class="speed">50 Mbps</div><div class="price">₹599</div><div class="tax">+ GST</div><a class="quote" href="https://wa.me/919481388249?text=I%20am%20interested%20in%20the%2050%20Mbps%20plan." target="_blank">Enquire</a></article>
-      <article class="plan"><div class="speed">75 Mbps</div><div class="price">₹699</div><div class="tax">+ GST</div><a class="quote" href="https://wa.me/919481388249?text=I%20am%20interested%20in%20the%2075%20Mbps%20plan." target="_blank">Enquire</a></article>
-      <article class="plan"><div class="speed">100 Mbps</div><div class="price">₹799</div><div class="tax">+ GST</div><a class="quote" href="https://wa.me/919481388249?text=I%20am%20interested%20in%20the%20100%20Mbps%20plan." target="_blank">Enquire</a></article>
-      <article class="plan"><div class="speed">200 Mbps</div><div class="price">₹999</div><div class="tax">+ GST</div><a class="quote" href="https://wa.me/919481388249?text=I%20am%20interested%20in%20the%20200%20Mbps%20plan." target="_blank">Enquire</a></article>
-      <article class="plan"><div class="speed">300 Mbps</div><div class="price">₹1,500</div><div class="tax">+ GST</div><a class="quote" href="https://wa.me/919481388249?text=I%20am%20interested%20in%20the%20300%20Mbps%20plan." target="_blank">Enquire</a></article>
-    </div>
+<section id="plans" class="plans-section">
+ <div class="container">
+  <div class="section-head reveal"><div class="kicker">Broadband Plans</div><h2>Choose your speed.</h2><p>Simple plans with clear pricing. All prices below are before GST.</p></div>
+  <div class="plan-grid">
+   <article class="plan reveal"><div class="speed">40 Mbps</div><div class="price">₹499</div><div class="tax">+ GST / month</div><a class="enquire" href="https://wa.me/919481388249?text=I%20am%20interested%20in%20the%2040%20Mbps%20plan." target="_blank">Enquire →</a></article>
+   <article class="plan reveal"><div class="speed">50 Mbps</div><div class="price">₹599</div><div class="tax">+ GST / month</div><a class="enquire" href="https://wa.me/919481388249?text=I%20am%20interested%20in%20the%2050%20Mbps%20plan." target="_blank">Enquire →</a></article>
+   <article class="plan reveal"><div class="speed">75 Mbps</div><div class="price">₹699</div><div class="tax">+ GST / month</div><a class="enquire" href="https://wa.me/919481388249?text=I%20am%20interested%20in%20the%2075%20Mbps%20plan." target="_blank">Enquire →</a></article>
+   <article class="plan featured reveal"><span class="pop">POPULAR</span><div class="speed">100 Mbps</div><div class="price">₹799</div><div class="tax">+ GST / month</div><a class="enquire" href="https://wa.me/919481388249?text=I%20am%20interested%20in%20the%20100%20Mbps%20plan." target="_blank">Enquire →</a></article>
+   <article class="plan reveal"><div class="speed">200 Mbps</div><div class="price">₹999</div><div class="tax">+ GST / month</div><a class="enquire" href="https://wa.me/919481388249?text=I%20am%20interested%20in%20the%20200%20Mbps%20plan." target="_blank">Enquire →</a></article>
+   <article class="plan reveal"><div class="speed">300 Mbps</div><div class="price">₹1,500</div><div class="tax">+ GST / month</div><a class="enquire" href="https://wa.me/919481388249?text=I%20am%20interested%20in%20the%20300%20Mbps%20plan." target="_blank">Enquire →</a></article>
   </div>
+ </div>
 </section>
 
-<section class="sky-reveal" id="printing">
-  <div class="container">
-    <div class="section-head">
-      <div><div class="eyebrow">3D Printing Studio</div><h2>From idea to object.</h2></div>
-      <p>Send a drawing, reference, dimensions or an existing part. We can help turn it into a practical printed product.</p>
-    </div>
-    <div class="gallery">
-      <figure><img src="https://images.unsplash.com/photo-1747228984027-7d922d33899f?auto=format&fit=crop&fm=jpg&q=82&w=1200" alt="3D printed phone holder"><figcaption>Phone stands & holders<small>Custom shapes and sizes</small></figcaption></figure>
-      <figure><img src="https://images.unsplash.com/photo-1740625940423-a59a65c753c0?auto=format&fit=crop&fm=jpg&q=82&w=1200" alt="3D printed mechanical components"><figcaption>Mechanical parts<small>Gears, brackets & functional parts</small></figcaption></figure>
-      <figure><img src="https://images.unsplash.com/photo-1769151174211-a1b2d41117bd?auto=format&fit=crop&fm=jpg&q=82&w=1200" alt="3D printed prototype parts"><figcaption>Prototypes & enclosures<small>Development and testing</small></figcaption></figure>
-      <figure><img src="https://images.unsplash.com/photo-1741764595674-3511fd1e2613?auto=format&fit=crop&fm=jpg&q=82&w=1200" alt="3D printed object"><figcaption>Custom products<small>Made-to-order designs</small></figcaption></figure>
-    </div>
-    <p class="note">Representative 3D-printing photographs. Your final products can be customized to your design, dimensions and requirements.</p>
-    <div class="cards" style="margin-top:25px">
-      <article class="card"><div class="icon">📱</div><h3>Phone Stands & Holders</h3><p>Desk, vehicle and custom-use holders.</p></article>
-      <article class="card"><div class="icon">🏷️</div><h3>Name Tags & Labels</h3><p>Personalized tags and bulk corporate requirements.</p></article>
-      <article class="card"><div class="icon">⚙️</div><h3>Parts & Prototypes</h3><p>Functional parts, enclosures, brackets and prototypes.</p></article>
-    </div>
+<section id="printing" class="print-section">
+ <div class="container">
+  <div class="section-head reveal"><div class="kicker">3D Printing Studio</div><h2>From idea<br>to object.</h2><p>Have a drawing, dimensions, reference image or existing part? We can help turn the idea into a practical printed product.</p></div>
+  <div class="gallery">
+   <figure class="tile t1 zoom"><img src="https://images.unsplash.com/photo-1747228984027-7d922d33899f?auto=format&fit=crop&fm=jpg&q=85&w=1600" alt="3D printed phone holder"><figcaption class="tile-text"><b>Phone Stands & Holders</b><span>Desk, vehicle and custom-use designs</span></figcaption></figure>
+   <figure class="tile t2 zoom"><img src="https://images.unsplash.com/photo-1740625940423-a59a65c753c0?auto=format&fit=crop&fm=jpg&q=85&w=1400" alt="3D printed mechanical parts"><figcaption class="tile-text"><b>Functional Parts</b><span>Gears, brackets and replacement components</span></figcaption></figure>
+   <figure class="tile t3 zoom"><img src="https://images.unsplash.com/photo-1769151174211-a1b2d41117bd?auto=format&fit=crop&fm=jpg&q=85&w=1400" alt="3D printed prototype"><figcaption class="tile-text"><b>Prototypes & Enclosures</b><span>Development, testing and product concepts</span></figcaption></figure>
+   <figure class="tile t4 zoom"><img src="https://images.unsplash.com/photo-1741764595674-3511fd1e2613?auto=format&fit=crop&fm=jpg&q=85&w=1200" alt="3D printed custom object"><figcaption class="tile-text"><b>Custom Products</b><span>Made to your design</span></figcaption></figure>
+   <figure class="tile t5 zoom"><img src="https://images.unsplash.com/photo-1747228984027-7d922d33899f?auto=format&fit=crop&fm=jpg&q=85&w=1200" alt="3D printing product"><figcaption class="tile-text"><b>Name Tags & Labels</b><span>Personalized and bulk corporate orders</span></figcaption></figure>
+   <figure class="tile t6 zoom"><img src="https://images.unsplash.com/photo-1760446410955-86c0446b9be2?auto=format&fit=crop&fm=jpg&q=85&w=1200" alt="3D printer"><figcaption class="tile-text"><b>Small-Batch Production</b><span>Repeatable custom printing</span></figcaption></figure>
   </div>
+  <div class="note">Representative 3D-printing photographs. Final products can be customized to your design, dimensions and requirements.</div>
+ </div>
 </section>
 
-<section class="sky-reveal" id="business" class="dark">
-  <div class="container">
-    <div class="section-head">
-      <div><div class="eyebrow">Business Solutions</div><h2>Built for businesses too.</h2></div>
-      <p>Bulk printing, prototypes, custom products and connectivity for offices and corporate customers.</p>
-    </div>
-    <div class="business-grid">
-      <article class="card"><div class="icon">🏢</div><h3>Corporate & Bulk Orders</h3><p>Repeat production, name tags, customized components and other bulk requirements.</p></article>
-      <article class="card"><div class="icon">🧩</div><h3>Custom & Prototyping</h3><p>Share your drawing, dimensions or reference part and discuss the right printing approach.</p></article>
-    </div>
+<section id="business" class="business">
+ <div class="container">
+  <div class="section-head reveal"><div class="kicker">Business Solutions</div><h2>Made for business.<br>Built for scale.</h2><p>Corporate connectivity and custom manufacturing support for offices, teams and bulk requirements.</p></div>
+  <div class="business-grid">
+   <article class="business-card reveal"><div class="kicker">Corporate & Bulk</div><h3>Large quantities.<br>Consistent output.</h3><p>Name tags, customized components, repeat production and business requirements — discuss your quantity and specifications with us.</p></article>
+   <article class="business-card reveal"><div class="kicker">Custom & Prototype</div><h3>Turn a concept<br>into a product.</h3><p>Share your drawing, dimensions, reference image or existing part. We can discuss the best approach for your requirement.</p></article>
   </div>
+ </div>
 </section>
 
-<section class="sky-reveal" class="contact" id="contact">
-  <div class="container">
-    <div class="section-head">
-      <div><div class="eyebrow">Contact</div><h2>Let's build something.</h2></div>
-      <p>For broadband, cable TV, 3D printing, prototypes or bulk requirements, contact SKY Trading Company.</p>
-    </div>
-    <div class="contact-box">
-      <div class="contact-panel">
-        <h3>Start an enquiry</h3>
-        <p>WhatsApp us for the fastest response. Include your requirement, quantity, dimensions and any reference image or drawing.</p>
-        <div class="btns">
-          <a class="btn whatsapp" href="https://wa.me/919481388249?text=Hi%20SKY%20Trading%20Company%2C%20I%20have%20an%20enquiry." target="_blank" rel="noopener">WhatsApp Us</a>
-          <a class="btn primary" href="mailto:cablechar@skykunigal.in?subject=SKY%20Trading%20Company%20Enquiry">Send an Email</a>
-        </div>
-      </div>
-      <div class="contact-panel">
-        <div class="contact-links">
-          <a class="contact-link" href="tel:+919481388249"><span>Phone / WhatsApp</span>+91 94813 88249</a>
-          <a class="contact-link" href="mailto:cablechar@skykunigal.in"><span>Email</span>cablechar@skykunigal.in</a>
-          <a class="contact-link" href="https://www.google.com/maps/search/?api=1&query=Opp%20Govt%20Hospital%20BM%20Road%20Kunigal%20572130" target="_blank" rel="noopener"><span>Address</span>Opp. Govt Hospital, BM Road, Kunigal – 572130</a>
-          <a class="contact-link" href="https://www.instagram.com/skytrading.co/" target="_blank" rel="noopener"><span>Instagram</span>@skytrading.co</a>
-        </div>
-      </div>
-    </div>
+<section id="contact" class="contact">
+ <div class="container">
+  <div class="contact-box reveal">
+   <div class="contact-main">
+    <div class="kicker">Get in touch</div>
+    <h2>Let's build something great.</h2>
+    <p>Need broadband, Cable TV, a custom 3D print, prototype or bulk order? Contact SKY Trading Company.</p>
+    <div class="actions"><a class="btn btn-green" href="https://wa.me/919481388249?text=Hi%20SKY%20Trading%20Company%2C%20I%20have%20an%20enquiry." target="_blank">WhatsApp Us</a><a class="btn btn-blue" href="mailto:cablechar@skykunigal.in?subject=SKY%20Trading%20Company%20Enquiry">Send an Email</a></div>
+   </div>
+   <div class="contact-info">
+    <div class="info"><label>Phone</label><a href="tel:+919481388249">+91 94813 88249</a></div>
+    <div class="info"><label>WhatsApp</label><a href="https://wa.me/919481388249" target="_blank">Chat on WhatsApp →</a></div>
+    <div class="info"><label>Email</label><a href="mailto:cablechar@skykunigal.in">cablechar@skykunigal.in</a></div>
+    <div class="info"><label>Address</label><a href="https://www.google.com/maps/search/?api=1&query=Opp%20Govt%20Hospital%20BM%20Road%20Kunigal%20572130" target="_blank">Opp. Govt Hospital, BM Road, Kunigal – 572130</a></div>
+    <div class="info"><label>Instagram</label><a href="https://www.instagram.com/skytrading.co/" target="_blank">@skytrading.co →</a></div>
+   </div>
   </div>
+ </div>
 </section>
 
 <footer>
-  <div class="container footer-inner">
-    <div><strong style="color:#fff">SKY Trading Company</strong> · Connecting. Creating. Delivering.</div>
-    <div>Opp. Govt Hospital, BM Road, Kunigal – 572130 · © 2026</div>
-  </div>
+ <div class="container footer-grid"><div><strong>SKY TRADING COMPANY</strong> · Internet · Cable TV · 3D Printing · Business Solutions</div><div>Kunigal, Karnataka · © 2026</div></div>
 </footer>
 
-<div id="sky-progress"></div>
-<style>
-#sky-progress{
-  position:fixed;top:0;left:0;height:3px;width:0;z-index:99999;
-  background:linear-gradient(90deg,#0071e3,#2997ff,#af52de);
-  transform-origin:left center;pointer-events:none;
-}
-</style>
 <script>
-(function(){
-  const bar=document.getElementById('sky-progress');
-  const reveal=[...document.querySelectorAll('.sky-reveal,.sky-zoom')];
-  const io=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('sky-visible');io.unobserve(e.target);}});
-  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
-  reveal.forEach((el,i)=>{el.style.transitionDelay=Math.min((i%6)*70,350)+'ms';io.observe(el);});
+const revealEls=document.querySelectorAll('.reveal,.zoom');
+const observer=new IntersectionObserver((entries)=>{
+ entries.forEach((entry)=>{
+  if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}
+ })
+},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+revealEls.forEach((el,i)=>{el.style.transitionDelay=Math.min((i%5)*80,320)+'ms';observer.observe(el)});
 
-  let ticking=false;
-  function onScroll(){
-    if(ticking)return;ticking=true;
-    requestAnimationFrame(()=>{
-      const h=document.documentElement.scrollHeight-innerHeight;
-      bar.style.width=(h>0?(scrollY/h)*100:0)+'%';
-      document.querySelectorAll('.sky-parallax').forEach(el=>{
-        const r=el.getBoundingClientRect();
-        el.style.transform='translate3d(0,'+(r.top*.035)+'px,0)';
-      });
-      ticking=false;
-    });
-  }
-  addEventListener('scroll',onScroll,{passive:true});onScroll();
-})();
+const progress=document.getElementById('progress');
+let ticking=false;
+function scrollFX(){
+ if(ticking)return;ticking=true;
+ requestAnimationFrame(()=>{
+  const max=document.documentElement.scrollHeight-innerHeight;
+  progress.style.width=(max>0?(scrollY/max)*100:0)+'%';
+  document.querySelectorAll('.parallax').forEach(el=>{
+   const r=el.getBoundingClientRect();
+   const offset=(r.top-innerHeight/2)*-.035;
+   el.style.transform='translate3d(0,'+offset+'px,0)';
+  });
+  ticking=false;
+ });
+}
+addEventListener('scroll',scrollFX,{passive:true});scrollFX();
 </script>
-
 </body>
 </html>
