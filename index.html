@@ -75,12 +75,85 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:#8e9bb5;font-size:1
  .cards,.plans,.gallery{grid-template-columns:1fr}.gallery img{height:230px}.footer-inner{display:block}.footer-inner div+div{margin-top:8px}
 }
 </style>
+
+<style id="bright-theme">
+:root{
+  --blue:#0878ff;
+  --cyan:#00c8ff;
+  --purple:#7b3cff;
+  --pink:#ff3cac;
+  --green:#00c878;
+  --yellow:#ffb800;
+  --ink:#0b1b3a;
+  --muted:#52627a;
+  --surface:#ffffff;
+  --soft:#f5f9ff;
+}
+body{
+  background:linear-gradient(180deg,#f7fbff 0%,#ffffff 45%,#f7f4ff 100%);
+  color:var(--ink);
+}
+header, .nav, nav{
+  background:rgba(255,255,255,.96)!important;
+  border-bottom:1px solid #dbe7f7!important;
+}
+.logo-sky{
+  color:var(--blue)!important;
+  font-weight:900;
+}
+.logo-trading{
+  color:var(--ink)!important;
+  font-weight:800;
+  letter-spacing:-.03em;
+}
+a{color:var(--blue);}
+.btn, button{
+  background:linear-gradient(135deg,#0878ff,#00bfff)!important;
+  box-shadow:0 10px 28px rgba(8,120,255,.22);
+}
+.btn.whatsapp, .whatsapp{
+  background:linear-gradient(135deg,#00c878,#20e07d)!important;
+}
+.hero{
+  background:
+    radial-gradient(circle at 82% 20%,rgba(0,200,255,.48),transparent 28%),
+    radial-gradient(circle at 65% 80%,rgba(123,60,255,.48),transparent 30%),
+    linear-gradient(135deg,#061b5b 0%,#075bd8 48%,#5b22d9 100%)!important;
+}
+.hero h1 span, .accent, .highlight{
+  color:#35d7ff!important;
+}
+.section{
+  background:transparent!important;
+}
+.card, .plan, .service-card, .contact-card{
+  background:rgba(255,255,255,.96)!important;
+  border:1px solid #dbe8ff!important;
+  box-shadow:0 14px 35px rgba(20,60,120,.10)!important;
+}
+.plan:nth-child(1){border-top:4px solid #00c8ff!important}
+.plan:nth-child(2){border-top:4px solid #0878ff!important}
+.plan:nth-child(3){border-top:4px solid #7b3cff!important}
+.plan:nth-child(4){border-top:4px solid #ff3cac!important}
+.plan:nth-child(5){border-top:4px solid #ff9f1c!important}
+.plan:nth-child(6){border-top:4px solid #00c878!important}
+.plan .price{color:var(--blue)!important;}
+.badge, .popular{
+  background:linear-gradient(90deg,#ff3cac,#7b3cff)!important;
+}
+footer, .contact-section{
+  background:linear-gradient(135deg,#06183f,#15105b 55%,#2b0c68)!important;
+}
+</style>
+
 </head>
 <body>
 
 <nav class="nav">
   <div class="container nav-inner">
-    <a class="logo" href="#">SKY<span>.</span></a>
+    <a class="logo" href="#top" aria-label="SKY Trading Company">
+      <span class="logo-sky">SKY</span><span class="logo-trading"> TRADING COMPANY</span>
+    </a>
     <div class="nav-links">
       <a href="#services">Services</a>
       <a href="#plans">Broadband Plans</a>
