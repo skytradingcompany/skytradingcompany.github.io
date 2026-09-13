@@ -345,6 +345,68 @@ footer{background:#1d1d1f;color:#a1a1a6;padding:35px 0;font-size:13px}.footer-gr
 }
 </style>
 
+
+<style id="stable-desktop-header">
+/* Stable header: the outer height NEVER changes while scrolling.
+   Only the visual contents scale, preventing scroll-anchor feedback/jitter. */
+.nav{
+  height:104px!important;
+  min-height:104px!important;
+  transition:background .25s ease,box-shadow .25s ease!important;
+}
+.nav-inner{
+  height:104px!important;
+  min-height:104px!important;
+  transition:none!important;
+}
+.brand{
+  transform-origin:left center!important;
+  transition:transform .38s cubic-bezier(.2,.8,.2,1)!important;
+  will-change:transform;
+}
+.brand .sky,.brand .name{
+  transition:none!important;
+}
+.brand .sky{
+  font-size:58px!important;
+  line-height:.84!important;
+  font-weight:800!important;
+  letter-spacing:-3.8px!important;
+}
+.brand .name{
+  font-size:43px!important;
+  line-height:.84!important;
+  font-weight:800!important;
+  letter-spacing:-2.7px!important;
+}
+.nav.scrolled .brand{
+  transform:scale(.52)!important;
+}
+.nav.scrolled{
+  box-shadow:0 8px 30px rgba(0,0,0,.07);
+}
+@media(max-width:1100px){
+  .nav,.nav-inner{height:92px!important;min-height:92px!important}
+  .brand .sky{font-size:48px!important}
+  .brand .name{font-size:36px!important}
+  .nav.scrolled .brand{transform:scale(.56)!important}
+}
+@media(max-width:900px){
+  .nav,.nav-inner{height:76px!important;min-height:76px!important}
+  .brand{gap:7px!important}
+  .brand .sky{font-size:37px!important;letter-spacing:-2.4px!important}
+  .brand .name{font-size:28px!important;letter-spacing:-1.6px!important}
+  .nav.scrolled .brand{transform:scale(.62)!important}
+}
+@media(max-width:600px){
+  .nav,.nav-inner{height:68px!important;min-height:68px!important}
+  .brand{gap:5px!important}
+  .brand .sky{font-size:30px!important;letter-spacing:-2px!important}
+  .brand .name{font-size:20px!important;letter-spacing:-1.1px!important}
+  .nav.scrolled .brand{transform:scale(.68)!important}
+}
+</style>
+
 </head>
 <body id="top">
 <div class="progress" id="progress"></div>
@@ -485,16 +547,15 @@ footer{background:#1d1d1f;color:#a1a1a6;padding:35px 0;font-size:13px}.footer-gr
 
 <script id="stable-scroll-animation">
 (function(){
-  const items = document.querySelectorAll('.reveal,.zoom');
-  const observer = new IntersectionObserver((entries)=>{
-    entries.forEach((entry)=>{
+  const items=document.querySelectorAll('.reveal,.zoom');
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
       if(entry.isIntersecting){
         entry.target.classList.add('visible');
         observer.unobserve(entry.target);
       }
     });
   },{threshold:.14,rootMargin:'0px 0px -10% 0px'});
-
   items.forEach((el,i)=>{
     el.style.transitionDelay=Math.min((i%4)*70,210)+'ms';
     observer.observe(el);
@@ -502,16 +563,21 @@ footer{background:#1d1d1f;color:#a1a1a6;padding:35px 0;font-size:13px}.footer-gr
 
   const nav=document.querySelector('.nav');
   const progress=document.getElementById('progress');
+  let compact=false, ticking=false;
 
-  let ticking=false;
   function onScroll(){
     if(ticking)return;
     ticking=true;
     requestAnimationFrame(()=>{
-      if(nav) nav.classList.toggle('scrolled', window.scrollY>55);
+      const y=window.scrollY;
+      // Hysteresis: enter compact mode at 90px, leave only below 25px.
+      // This prevents the header from repeatedly switching at one boundary.
+      if(!compact && y>90) compact=true;
+      else if(compact && y<25) compact=false;
+      if(nav) nav.classList.toggle('scrolled',compact);
       if(progress){
         const max=document.documentElement.scrollHeight-window.innerHeight;
-        progress.style.width=(max>0 ? (window.scrollY/max)*100 : 0)+'%';
+        progress.style.width=(max>0?(y/max)*100:0)+'%';
       }
       ticking=false;
     });
