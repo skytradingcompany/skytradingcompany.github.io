@@ -111,6 +111,54 @@ footer{background:#1d1d1f;color:#a1a1a6;padding:35px 0;font-size:13px}.footer-gr
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.reveal,.zoom{opacity:1!important;transform:none!important;transition:none!important}}
 </style>
+
+<style id="brand-scroll-style">
+.nav{
+  transition:height .45s cubic-bezier(.2,.8,.2,1),background .35s ease,box-shadow .35s ease;
+}
+.nav-inner{
+  height:104px;
+  transition:height .45s cubic-bezier(.2,.8,.2,1);
+}
+.brand{
+  transform-origin:left center;
+  transition:transform .45s cubic-bezier(.2,.8,.2,1);
+}
+.brand .sky{
+  font-size:42px!important;
+  letter-spacing:-2.7px!important;
+  transition:font-size .45s cubic-bezier(.2,.8,.2,1);
+}
+.brand .name{
+  font-size:27px!important;
+  letter-spacing:-1.1px!important;
+  transition:font-size .45s cubic-bezier(.2,.8,.2,1);
+}
+.brand small{transition:opacity .35s ease}
+.nav.scrolled{
+  box-shadow:0 8px 30px rgba(0,0,0,.07);
+}
+.nav.scrolled .nav-inner{height:68px}
+.nav.scrolled .brand .sky{font-size:27px!important;letter-spacing:-1.7px!important}
+.nav.scrolled .brand .name{font-size:17px!important;letter-spacing:-.7px!important}
+.nav.scrolled .brand small{opacity:0;height:0;overflow:hidden}
+@media(max-width:900px){
+  .nav-inner{height:82px}
+  .brand .sky{font-size:32px!important}
+  .brand .name{font-size:20px!important}
+  .nav.scrolled .nav-inner{height:62px}
+  .nav.scrolled .brand .sky{font-size:24px!important}
+  .nav.scrolled .brand .name{font-size:15px!important}
+}
+@media(max-width:560px){
+  .brand .sky{font-size:28px!important}
+  .brand .name{font-size:16px!important}
+  .nav-inner{height:74px}
+  .nav.scrolled .brand .sky{font-size:22px!important}
+  .nav.scrolled .brand .name{font-size:13px!important}
+}
+</style>
+
 </head>
 <body id="top">
 <div class="progress" id="progress"></div>
@@ -260,5 +308,18 @@ function scrollFX(){
 }
 addEventListener('scroll',scrollFX,{passive:true});scrollFX();
 </script>
+
+<script id="brand-scroll-script">
+(function(){
+  const nav=document.querySelector('.nav');
+  if(!nav)return;
+  function updateBrand(){
+    nav.classList.toggle('scrolled',window.scrollY>55);
+  }
+  addEventListener('scroll',updateBrand,{passive:true});
+  updateBrand();
+})();
+</script>
+
 </body>
 </html>
